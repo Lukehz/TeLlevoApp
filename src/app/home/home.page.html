@@ -1,0 +1,263 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center;">
+      <img src="../assets/images/duocLogo.png" alt="duocLogo">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar id="subtoolbar">
+      <ion-title size="small">
+        <ion-list>
+          <ion-item >
+            <ion-select placeholder="Selecciona Sede">
+              <ion-select-option value="PuertoMontt">Puerto Montt</ion-select-option>
+              <ion-select-option value="Viña del mar">Viña del mar</ion-select-option>
+              <ion-select-option value="Valparaiso">Valparaiso</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-title>
+      <ion-subtitle id="subtitle">
+        <ion-input placeholder="¿a donde deseas ir?"></ion-input>
+      </ion-subtitle>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div>
+
+    <ion-card button (click)="cardClick()" color="primary" id="open-modal" expand="block">
+      <ion-card-header>
+        <ion-card-title size="x-small" >Calbuco</ion-card-title><img id="pasajeros" src="../assets/images/4pasajeros.png" alt="4 pasjeros">
+        <ion-card-subtitle style="margin-top: -15px;">Nissan Skyline</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        salida 20:00 <br>
+        Precio conversable
+      </ion-card-content>
+
+      <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+        <ng-template>
+
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="volverInicio()">Cancel</ion-button>
+              </ion-buttons>
+              <ion-title>Calbuco</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+
+          <ion-content class="ion-padding">
+            <ion-card id="card2" color="primary">
+              <img alt="Silhouette of mountains" src="../assets/images/skyline.png" />
+              <ion-card-header>
+                <ion-card-title id="cardTitle">Datos personales</ion-card-title>
+                <ion-card-content id="cardText2">
+                  <b>Conductor: </b>Humberto Suazo <br>
+                  <b>Edad: </b>22 <br>
+                  <b>Carrera: </b>Ing. Informatica 
+                </ion-card-content>
+              </ion-card-header>
+              <ion-card-subtitle id="cardTitle">Datos del auto</ion-card-subtitle>
+              <ion-card-content id="cardText2">
+                <b>Marca: </b>Nissan<br>
+                <b>Modelo: </b> Skyline GT-R R34<br>
+                <b>Patente: </b> BB*CL*34 <br>
+              </ion-card-content>
+            </ion-card>
+          </ion-content>
+
+        </ng-template>
+      </ion-modal>
+
+    </ion-card>
+
+
+    <ion-card button (click)="cardClick()" color="success" id="open-modal-2" expand="block">
+      <ion-card-header>
+        <ion-card-title size="x-small" >Maullin</ion-card-title><img id="pasajeros" src="../assets/images/2pasajeros.png" alt="4 pasjeros">
+        <ion-card-subtitle style="margin-top: -15px;">ford mustang</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        salida 18:00 <br>
+        $1200
+      </ion-card-content>
+
+      <ion-modal trigger="open-modal-2" (willDismiss)="onWillDismiss($event)">
+        <ng-template>
+
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="volverInicio()">Cancel</ion-button>
+              </ion-buttons>
+              <ion-title>Maullin</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+
+          <ion-content class="ion-padding">
+            <ion-card id="card2" color="success">
+              <img alt="Silhouette of mountains" src="../assets/images/mustang.png" style="margin-top: 70px;"/>
+              <ion-card-header>
+                <ion-card-title id="cardTitle">Datos personales</ion-card-title>
+                <ion-card-content id="cardText2">
+                  <b>Conductor: </b>Selena Gomez <br>
+                  <b>Edad: </b>24 <br>
+                  <b>Carrera: </b>Ing. Construccion
+                </ion-card-content>
+              </ion-card-header>
+              <ion-card-subtitle id="cardTitle">Datos del auto</ion-card-subtitle>
+              <ion-card-content id="cardText2">
+                <b>Marca: </b>Ford<br>
+                <b>Modelo: </b> Mustang Shelby GT500<br>
+                <b>Patente: </b> DT*RC*78 <br>
+              </ion-card-content>
+            </ion-card>
+          </ion-content>
+
+        </ng-template>
+      </ion-modal>
+
+    </ion-card>
+
+
+    <ion-card button (click)="cardClick()" color="warning" id="open-modal-3" expand="block">
+      <ion-card-header>
+        <ion-card-title size="x-small" >Osorno</ion-card-title><img id="pasajeros" src="../assets/images/3pasajeros.png" alt="4 pasjeros">
+        <ion-card-subtitle style="margin-top: -15px;">Audi R8</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        salida 15:00 <br>
+        $1900
+      </ion-card-content>
+
+      <ion-modal trigger="open-modal-3" (willDismiss)="onWillDismiss($event)">
+        <ng-template>
+
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="volverInicio()">Cancel</ion-button>
+              </ion-buttons>
+              <ion-title>Osorno</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+
+          <ion-content class="ion-padding">
+            <ion-card id="card2" color="warning">
+              <img alt="Silhouette of mountains" src="../assets/images/audi.png" style="margin-top: 70px;"/>
+              <ion-card-header>
+                <ion-card-title id="cardTitle">Datos personales</ion-card-title>
+                <ion-card-content id="cardText2">
+                  <b>Conductor: </b>Alexis Sanchez <br>
+                  <b>Edad: </b>24 <br>
+                  <b>Carrera: </b>Ing. Electricidad 
+                </ion-card-content>
+              </ion-card-header>
+              <ion-card-subtitle id="cardTitle">Datos del auto</ion-card-subtitle>
+              <ion-card-content id="cardText2">
+                <b>Marca: </b>Audi<br>
+                <b>Modelo: </b> R8<br>
+                <b>Patente: </b> CC*XD*28 <br>
+              </ion-card-content>
+            </ion-card>
+          </ion-content>
+
+        </ng-template>
+      </ion-modal>
+
+    </ion-card>
+
+    <ion-footer style="position: absolute;">
+      <ion-button id="open-modal-agregar" expand="block">Open</ion-button>
+      <ion-modal trigger="open-modal-agregar" (willDismiss)="onWillDismiss($event)">
+        <ng-template>
+
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="volverInicio()">Cancel</ion-button>
+              </ion-buttons>
+              <ion-buttons slot="end">
+                <ion-button (click)="agregar(txtMarca, txtModelo, txtMatricula)" [strong]="true">Confirm</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+
+          <ion-toolbar>
+            <ion-title style="text-align: center;">Registro<br>datos</ion-title>
+          </ion-toolbar>
+          
+          <ion-content>
+            <ion-item>
+              <ion-label>Matricula / key</ion-label>
+              <ion-input type="text" placeholder="Ej: CCXD53" #txtMatricula></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Marca</ion-label>
+              <ion-input type="text" placeholder="Ej: Nissan" #txtMarca></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Modelo</ion-label>
+              <ion-input type="text" placeholder="Ej: V16" #txtModelo></ion-input>
+            </ion-item>
+
+            
+            <ion-footer>
+              <ion-toolbar> <!-- 
+                <ion-buttons slot="start">
+                  <ion-button (click)="Listar()">Listar</ion-button>
+                </ion-buttons>    -->             
+                <ion-buttons slot="end">
+                  <ion-button (click)="buscar(txtMatricula)">Buscar</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-footer>
+
+              <ion-card color="danger" *ngIf="matricula">
+
+                <ion-card-header style="color: black;">
+                  <ion-card-title class="ion-text-center">
+                    Vehiculo encontrado
+                  </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content style="text-align: center;font-size: medium;">
+                  <b>Matricula: </b> {{ matricula }} <br>
+                  <b>Marca: </b> {{ marca }} <br>
+                  <b>Modelo: </b> {{ modelo }} <br>
+                  
+                  <ion-button (click)="eliminar(txtMatricula)" fill="clear" style="font-size: x-large;color: black;">
+                    Eliminar
+                  </ion-button>
+     
+                  
+                </ion-card-content>
+                
+              </ion-card>
+
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+    </ion-footer>
+
+  </div>
+</ion-content>
+    
+    
