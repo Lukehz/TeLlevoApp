@@ -19,14 +19,20 @@ ion-select {
 #pasajeros {
   height: 60px;
   width: 60px;
-  margin-left: 120px;
-  margin-right: 0px;
-  margin-top: -70px;
-  padding: 0px;
+  margin-top: -40px;
+  float: right;
+}
+
+.md #pasajeros { //solo para android
+  margin-top: -35px;
+
+}
+
+#subtitlecard1 {
+  margin-top: 5px;
 }
 
 #card2 {
-  width: 265px;
   margin: -11px;
 }
 

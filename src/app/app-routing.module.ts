@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'inicio',
+    redirectTo: 'inicio', //muestra la primera pagina al entrar a la app
     pathMatch: 'full'
   },
   {
