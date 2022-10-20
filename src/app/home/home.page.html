@@ -9,13 +9,13 @@
 <ion-content [fullscreen]="true">
   <ion-header>
     <ion-toolbar id="subtoolbar">
-      <ion-title size="small">
+      <ion-title size="small"> <!--En el SCSS poner size=small solamente en IOS-->
         <ion-list>
           <ion-item >
-            <ion-select placeholder="Selecciona Sede">
-              <ion-select-option value="PuertoMontt">Puerto Montt</ion-select-option>
-              <ion-select-option value="Viña del mar">Viña del mar</ion-select-option>
-              <ion-select-option value="Valparaiso">Valparaiso</ion-select-option>
+            <ion-select placeholder="Selecciona Sede" id="SelectSede">
+              <ion-select-option id="SelectSede" value="PuertoMontt">Puerto Montt</ion-select-option>
+              <ion-select-option id="SelectSede" value="Viña del mar">Viña del mar</ion-select-option>
+              <ion-select-option id="SelectSede" value="Valparaiso">Valparaiso</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-list>
