@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'conductor',
     loadChildren: () => import('./conductor/conductor.module').then( m => m.ConductorPageModule)
   },
+  {
+    path: 'mapa',
+    loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)
+  },
 ];
 
 @NgModule({
