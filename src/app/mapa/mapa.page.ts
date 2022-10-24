@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 //import { title } from 'process';
 
 declare var google;

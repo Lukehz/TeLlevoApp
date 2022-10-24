@@ -9,12 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 
 // npm install @ionic/storange-angular;
 import { IonicStorageModule } from '@ionic/storage-angular';
+// npm install geolocation
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+
+
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [Geolocation, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
