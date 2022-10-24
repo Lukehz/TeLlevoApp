@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center;">
+      <img src="../assets/images/duocLogo.png" alt="duocLogo">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar id="toolbarMap">
+    <ion-buttons slot="start">
+      <ion-button (click)="onClick()" [routerLink]="['/home']">Cancel</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onClick()" [routerLink]="['/home']">Confirmar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div id="map"></div>
+</ion-content>

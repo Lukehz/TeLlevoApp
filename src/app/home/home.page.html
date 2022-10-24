@@ -16,7 +16,7 @@
               <ion-select-option id="SelectSede" value="PuertoMontt">Puerto Montt</ion-select-option>
               <ion-select-option id="SelectSede" value="Viña del mar">Viña del mar</ion-select-option>
               <ion-select-option id="SelectSede" value="Valparaiso">Valparaiso</ion-select-option>
-            </ion-select><ion-button (click)="onClick()">
+            </ion-select><ion-button (click)="onClick()" [routerLink]="['/mapa']">
               <ion-icon slot="icon-only" name="map"></ion-icon>
             </ion-button>
           </ion-item>
@@ -65,8 +65,8 @@
               <ion-card-header>
                 <ion-card-title id="cardTitle">Datos personales</ion-card-title>
                 <ion-card-content id="cardText2">
-                  <b>Conductor: </b>Humberto Suazo <br>
-                  <b>Edad: </b>22 <br>
+                  <b>Conductor: </b>Lucas Hernandez <br>
+                  <b>Edad: </b>19 <br>
                   <b>Carrera: </b>Ing. Informatica 
                 </ion-card-content>
               </ion-card-header>
