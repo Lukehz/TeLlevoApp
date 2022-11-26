@@ -9,7 +9,7 @@
 
 <ion-content class="ion-padding">
 
-  <form [formGroup]="usuario">
+  <form [formGroup]="usuario" (ngSubmit)="guardarDatos()">
     <ion-item>
       <ion-label position="floating">Rut</ion-label>
       <ion-input formControlName="rut"></ion-input>
@@ -22,12 +22,31 @@
 
     <ion-item>
       <ion-label position="floating">Correo electronico</ion-label>
-      <ion-input></ion-input>
+      <ion-input formControlName="correo"></ion-input>
     </ion-item>
     
-    <ion-item>
-      <ion-label>Carrera</ion-label>
+
+      <ion-item>
+        <ion-label position="floating">Carrera</ion-label>
+
+          <ion-select multiple="false" placeholder="Select Carrera">
+            <ion-select-option value="Auditoria">Auditoria</ion-select-option>
+            <ion-select-option value="TurismoYhoteleria">Turismo y Hotelería</ion-select-option>
+            <ion-select-option value="Ing.Informatica">Ingeniería en Informática</ion-select-option>
+          </ion-select>
+
     </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Sede</ion-label>
+
+        <ion-select multiple="false" placeholder="Select Sede">
+          <ion-select-option value="Valparaiso">Valparaiso</ion-select-option>
+          <ion-select-option value="VinaDelMar">Viña del Mar</ion-select-option>
+          <ion-select-option value="PuertoMontt">Puerto Montt</ion-select-option>
+        </ion-select>
+        
+  </ion-item>
   </form>
  
 </ion-content>
