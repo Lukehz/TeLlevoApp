@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-conductor',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConductorPage implements OnInit {
 
-  constructor() { }
+  constructor(public alertController: AlertController, public navCtrl: NavController) { }
 
   ngOnInit() {
   }
+  //se agrego para probar el inicio a la vista conductor
+  async ingresar(){
+    this.navCtrl.navigateRoot('vista-conductor');
+  }
+    
 
 }

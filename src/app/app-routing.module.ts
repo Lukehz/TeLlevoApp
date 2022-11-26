@@ -31,6 +31,11 @@ const routes: Routes = [
     path: 'mapa',
     loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)
   },
+  {
+    path: 'vista-conductor',
+    loadChildren: () => import('./vista-conductor/vista-conductor.module').then( m => m.VistaConductorPageModule)
+  },
+
 ];
 
 @NgModule({
