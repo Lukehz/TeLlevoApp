@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="conductor"></ion-back-button>
     </ion-buttons>
-    <ion-title>Datos</ion-title>
+    <ion-title id="titulo">Datos Personales</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -47,6 +47,83 @@
         </ion-select>
         
   </ion-item>
+
   </form>
+
+  <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+    CONFIRMAR
+  </ion-button>
+  <ion-button id="open-modal-agregar" expand="block">Open</ion-button>
+      <ion-modal trigger="open-modal-agregar" (willDismiss)="onWillDismiss($event)">
+        <ng-template>
+
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="volverInicio()">Cancel</ion-button>
+              </ion-buttons>
+              <ion-buttons slot="end">
+                <ion-button (click)="agregar(txtMarca, txtModelo, txtMatricula)" [strong]="true">Confirm</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+
+          <ion-toolbar>
+            <ion-title style="text-align: center;">Datos<br>Vehiculo</ion-title>
+          </ion-toolbar>
+          
+          <ion-content>
+            <ion-item>
+              <ion-label>Matricula / key</ion-label>
+              <ion-input type="text" placeholder="Ej: CCXD53" #txtMatricula></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Marca</ion-label>
+              <ion-input type="text" placeholder="Ej: Nissan" #txtMarca></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Modelo</ion-label>
+              <ion-input type="text" placeholder="Ej: V16" #txtModelo></ion-input>
+            </ion-item>
+
+            
+            <ion-footer>
+              <ion-toolbar> <!-- 
+                <ion-buttons slot="start">
+                  <ion-button (click)="Listar()">Listar</ion-button>
+                </ion-buttons>    -->             
+                <ion-buttons slot="end">
+                  <ion-button (click)="buscar(txtMatricula)">Buscar</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-footer>
+
+              <ion-card color="danger" *ngIf="matricula">
+
+                <ion-card-header style="color: black;">
+                  <ion-card-title class="ion-text-center">
+                    Vehiculo encontrado
+                  </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content style="text-align: center;font-size: medium;">
+                  <b>Matricula: </b> {{ matricula }} <br>
+                  <b>Marca: </b> {{ marca }} <br>
+                  <b>Modelo: </b> {{ modelo }} <br>
+                  
+                  <ion-button (click)="eliminar(txtMatricula)" fill="clear" style="font-size: x-large;color: black;">
+                    Eliminar
+                  </ion-button>
+     
+                  
+                </ion-card-content>
+                
+              </ion-card>
+
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+
+
  
 </ion-content>
