@@ -29,25 +29,25 @@ export class MapaPage implements OnInit {
   constructor(private geolocation: Geolocation) {}
 
   ngOnInit() {
-    this.getGeolocation();
     this.loadMap();
   }
 
-  getGeolocation(){
-    this.geolocation.getCurrentPosition().then((resp) => {
-      console.log("resp", resp)
-       this.latitude = resp.coords.latitude ,
-       this.longitude = resp.coords.longitude
-     }).catch((error) => {
-       console.log('Error getting location', error);
-     });
+  private async getLocation() {
+    const rta = await this.geolocation.getCurrentPosition();
+    console.log("coordenadas",rta.coords)
+    this.latitude = rta.coords.latitude;
+    this.longitude = rta.coords.longitude;
+    return {
+      lat: rta.coords.latitude,
+      lng: rta.coords.longitude
+    };
   }
 
-  loadMap() {
+  async loadMap() {
     // create a new map by passing HTMLElement
     const mapEle: HTMLElement = document.getElementById('map');
     // create LatLng object
-    const myLatLng = {lat: -41.47015899249667, lng: -72.92578711596433};
+    const myLatLng = await this.getLocation();
     // create map
     this.map = new google.maps.Map(mapEle, {
       center: myLatLng,
@@ -61,7 +61,7 @@ export class MapaPage implements OnInit {
           lat: this.latitude,
           lng: this.longitude
         },
-        title: 'DUOC UC'
+        title: 'Mi Ubicacion'
       };
       this.addMarker(marker);
     });
