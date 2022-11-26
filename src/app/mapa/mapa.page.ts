@@ -22,10 +22,25 @@ export class MapaPage implements OnInit {
 
   map: null;
 
-  constructor() {}
+  latitude: number;
+  longitude: number;
+
+
+  constructor(private geolocation: Geolocation) {}
 
   ngOnInit() {
+    this.getGeolocation();
     this.loadMap();
+  }
+
+  getGeolocation(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+      console.log("resp", resp)
+       this.latitude = resp.coords.latitude ,
+       this.longitude = resp.coords.longitude
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
   }
 
   loadMap() {
@@ -43,8 +58,8 @@ export class MapaPage implements OnInit {
       mapEle.classList.add('show-map');
       const marker = {
         position: {
-          lat: -41.47015899249667,
-          lng: -72.92578711596433
+          lat: this.latitude,
+          lng: this.longitude
         },
         title: 'DUOC UC'
       };
