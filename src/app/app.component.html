@@ -11,22 +11,10 @@
       </div>
       <ion-list class= "menu-items" lines="none">
 
-        <ion-item>
-          <ion-icon slot="start" name="moon"></ion-icon>
-          <ion-label>Toggle Dark Theme</ion-label>
-          <ion-toggle slot="end" ([ngModel])="darkMode" (ionChange)="cambio()"></ion-toggle>
-        </ion-item>
-
       <ion-menu-toggle>
         <ion-item routerLink="/home">
         <ion-icon name="home-outline"></ion-icon>Inicio
         </ion-item>
-      </ion-menu-toggle>
-
-      <ion-menu-toggle>
-          <ion-item routerLink="/mirasol">
-          <ion-icon name="bus-outline"></ion-icon>Mirasol
-          </ion-item>
       </ion-menu-toggle>
 
       <ion-menu-toggle>
@@ -36,28 +24,28 @@
       </ion-menu-toggle>
 
       <ion-menu-toggle>
-          <ion-item routerLink="/lintz">
-          <ion-icon name="location-outline"></ion-icon>Lintz
+        <ion-item>
+          <ion-icon name="person-circle-outline"></ion-icon>Cuenta
+        </ion-item>
+    </ion-menu-toggle>
+
+      <ion-menu-toggle>
+          <ion-item>
+          <ion-icon name="help-buoy-outline"></ion-icon>Ayuda
           </ion-item>
       </ion-menu-toggle>
 
       <ion-menu-toggle>
-          <ion-item routerLink="/pelluco">
-          <ion-icon name="sunny-outline"></ion-icon>Pelluco
+          <ion-item >
+            <ion-icon name="information-circle-outline"></ion-icon>Informacion
           </ion-item>
       </ion-menu-toggle>
 
-      <ion-menu-toggle>
-          <ion-item routerLink="/hospital">
-            <ion-icon name="medkit-outline"></ion-icon>Hospital
-          </ion-item>
-      </ion-menu-toggle>
-
-      <ion-menu-toggle>
-          <ion-item routerLink="/lagunitas">
-            <ion-icon name="business-outline"></ion-icon>Lagunitas
-          </ion-item>
-        </ion-menu-toggle>
+      <ion-item>
+        <ion-icon slot="start" name="moon"></ion-icon>
+        <ion-label>Tema</ion-label>
+        <ion-toggle color="medium" slot="end" ([ngModel])="darkMode" (ionChange)="cambio()"></ion-toggle>
+      </ion-item>
         
         <div class="linea-division"></div>
         
