@@ -3,6 +3,11 @@
     <ion-title style="text-align: center;">
       <img src="../assets/images/duocLogo.png" alt="duocLogo" id="duocLogo">
     </ion-title>
+    <!--Boton de salida por mientras-->
+    <ion-item (click)="salir()" routerDirection="root" lines="none" detail="false">
+      <ion-icon slot="start" [name]="'exit-outline'"></ion-icon>
+      <ion-label>Cerrar sesión</ion-label>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 

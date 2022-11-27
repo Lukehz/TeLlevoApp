@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Conductor</ion-title>
     <ion-buttons slot="start">
-    <ion-back-button></ion-back-button>
+    <ion-back-button color="dark"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -22,11 +22,11 @@
   <ion-input type="password"></ion-input>
 </ion-item>
 
-<ion-button (click)="ingresar()"class="ion-margin-top amarrillo1" expand="block">
+<ion-button (click)="ingresar()"class="ion-margin-top" color="warning" expand="block">
   Ingresar
 </ion-button>
 
-<ion-button [routerLink]="['/registropasajero']" class="ion-margin-top amarrillo" expand="block" fill="outline">
+<ion-button [routerLink]="['/registropasajero']" class="ion-margin-top" color="dark" expand="block" fill="outline">
   Nuevo usuario
 </ion-button>
 
