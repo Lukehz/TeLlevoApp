@@ -14,7 +14,7 @@ export class ConductorPage implements OnInit {
   }
   //se agrego para probar el inicio a la vista conductor
   async ingresar(){
-    this.navCtrl.navigateRoot('vista-conductor');
+    this.navCtrl.navigateForward('vista-conductor');
   }
     
 
