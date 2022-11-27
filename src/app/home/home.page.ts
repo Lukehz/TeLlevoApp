@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, ToastController } from '@ionic/angular';
+import { AlertController, ModalController, NavController, ToastController } from '@ionic/angular';
 // importar servicio de crud
 import { CrudService } from '../crud.servicie';
 
@@ -14,7 +14,9 @@ export class HomePage implements OnInit{
   marca = "";
   modelo = "";
   constructor( private modalCtrl: ModalController, private crud: CrudService,
-                                                    private toast: ToastController) {}
+                                                    private toast: ToastController,
+                                                     public alertController: AlertController,
+                                                      public navCtrl: NavController) {}
 
   ngOnInit() {
     
