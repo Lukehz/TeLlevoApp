@@ -12,6 +12,8 @@ import { CrudService } from '../crud.servicie';
 })
 export class VistaConductorPage implements OnInit {
 
+  email: string;
+
   usuario = new FormGroup({
     rut: new FormControl(''),
     nombreCompleto: new FormControl<string>(''),
@@ -27,6 +29,8 @@ export class VistaConductorPage implements OnInit {
                                                     private toast: ToastController) {}
 
   ngOnInit() {
+    var usuario = JSON.parse(localStorage.getItem('usuario'));
+    this.email = usuario.email;
     
   }
 

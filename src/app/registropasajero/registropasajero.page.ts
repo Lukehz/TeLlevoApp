@@ -43,7 +43,8 @@ export class RegistropasajeroPage implements OnInit {
 
     var usuario = {
       nombre: f.nombre,
-      password: f.password
+      password: f.password,
+      email: f.email
     }
 
     localStorage.setItem('usuario', JSON.stringify(usuario));
