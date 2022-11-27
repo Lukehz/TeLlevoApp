@@ -11,6 +11,12 @@
       </div>
       <ion-list class= "menu-items" lines="none">
 
+        <ion-item>
+          <ion-icon slot="start" name="moon"></ion-icon>
+          <ion-label>Toggle Dark Theme</ion-label>
+          <ion-toggle slot="end" ([ngModel])="darkMode" (ionChange)="cambio()"></ion-toggle>
+        </ion-item>
+
       <ion-menu-toggle>
         <ion-item routerLink="/home">
         <ion-icon name="home-outline"></ion-icon>Inicio
