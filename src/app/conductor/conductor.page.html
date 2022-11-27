@@ -12,31 +12,23 @@
 
   <form [formGroup]="formularioLogin">
 
-<ion-item class="ion-margin-top">
-  <ion-label position="floating">Usuario</ion-label>
-  <ion-input formControlName="nombre"></ion-input>
-</ion-item>
+    <ion-item class="ion-margin-top">
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
 
-<ion-item class="ion-margin-top">
-  <ion-label position="floating">Contraseña</ion-label>
-  <ion-input formControlName="password" type="password"></ion-input>
-</ion-item>
+    <ion-item class="ion-margin-top">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
 
-<ion-button (click)="ingresar()" class="ion-margin-top amarrillo1" expand="block">
+    <ion-button (click)="ingresar()"class="ion-margin-top" color="warning" expand="block">
+      Ingresar
+    </ion-button>
 
-<ion-button (click)="ingresar()"class="ion-margin-top" color="warning" expand="block">
+    <ion-button [routerLink]="['/registropasajero']" class="ion-margin-top" color="dark" expand="block" fill="outline">
+      Nuevo usuario
+    </ion-button>
 
-
-
-
-
-<ion-button (click)="ingresar()"class="ion-margin-top" color="warning" expand="block">
-  Ingresar
-</ion-button>
-
-<ion-button [routerLink]="['/registropasajero']" class="ion-margin-top" color="dark" expand="block" fill="outline">
-  Nuevo usuario
-</ion-button>
-
-</form>
-</ion-content>
+    </form>
+  </ion-content>

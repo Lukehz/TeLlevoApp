@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  nombre: string;
   
   darkMode: boolean = true;
 
@@ -14,6 +16,13 @@ export class AppComponent {
     this.darkMode = prefersDark.matches;
   }
 
+
+
+  ngOnInit() {
+    var usuario = JSON.parse(localStorage.getItem('usuario'));
+    this.nombre = usuario.nombre;
+    
+  }
 
   cambio() {
     // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
