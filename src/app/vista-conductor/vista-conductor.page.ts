@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, ToastController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
 //formulario
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 // importar servicio de crud
 import { CrudService } from '../crud.servicie';
 
@@ -15,20 +15,27 @@ export class VistaConductorPage implements OnInit {
   email: string;
 
   //datos extras para el usuario que va hacer conductor
-  conductor = new FormGroup({
-    rut: new FormControl('',[Validators.required,Validators.minLength(9)]),
-    nombreCompleto: new FormControl('',[Validators.required]),
-    carrera: new FormControl('',Validators.required),
-    sede: new FormControl('',Validators.required)
-  });
+
+
+  //
+  formularioConductor: FormGroup; 
 
 
   //CRUD
   matricula = "";
   marca = "";
   modelo = "";
-  constructor(private modalCtrl: ModalController, private crud: CrudService,
-                                                    private toast: ToastController) {}
+  constructor(public fb: FormBuilder,private modalCtrl: ModalController, private crud: CrudService,
+                                                    private toast: ToastController, public alertController: AlertController) {
+
+                                                      this.formularioConductor = this.fb.group({
+                                                        'rut': new FormControl("", [ Validators.required, Validators.minLength(9)]),
+                                                        'nombreCompleto': new FormControl("", Validators.required),
+                                                        'carrera': new FormControl("", Validators.required),
+                                                        'sede': new FormControl("", Validators.required)
+
+                                                      })
+                                                    }
 
   ngOnInit() {
     var usuario = JSON.parse(localStorage.getItem('usuario'));
@@ -36,8 +43,28 @@ export class VistaConductorPage implements OnInit {
     
   }
 
-  guardarDatos(){
-    console.log(this.conductor.value);
+  async guardarDatos(){
+    console.log(this.formularioConductor.value);
+    
+
+    if(this.formularioConductor.invalid){
+      const alert = await this.alertController.create({
+        header: 'Datos incompletos',
+        message: 'Rellenar todos los campos',
+        buttons: ['Aceptar']
+      });
+
+      await alert.present();
+      return;
+    }
+    var conductor = {
+      rut: this.formularioConductor.value.rut,
+      nombreCompleto: this.formularioConductor.value.nombreCompleto,
+      carrera: this.formularioConductor.value.carrera,
+      sede: this.formularioConductor.value.sede
+    }
+
+    localStorage.setItem('conductorDatos',JSON.stringify(conductor));
   }
 
   volverInicio() {

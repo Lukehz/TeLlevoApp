@@ -9,10 +9,10 @@
 
 <ion-content class="ion-padding">
 
-  <form [formGroup]="conductor" (ngSubmit)="guardarDatos()">
+  <form [formGroup]="formularioConductor" (ngSubmit)="guardarDatos()">
     <ion-item>
       <ion-label position="floating">Rut</ion-label>
-      <ion-input formControlName="rut"></ion-input>
+      <ion-input formControlName="rut" minlength="9"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -46,11 +46,11 @@
           <ion-select-option value="PuertoMontt">Puerto Montt</ion-select-option>
         </ion-select>
         
-  </ion-item>
+    </ion-item>
 
   </form>
 
-  <ion-button (click)="guardarDatos()" expand="block" fill="clear" shape="round" id="open-modal-agregar">
+  <ion-button (click)="guardarDatos()" expand="block" fill="clear" shape="round">
     Siguiente
   </ion-button>
       <ion-modal trigger="open-modal-agregar">
