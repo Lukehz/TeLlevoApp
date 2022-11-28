@@ -39,6 +39,16 @@ const routes: Routes = [
     path: 'vehiculo',
     loadChildren: () => import('./vehiculo/vehiculo.module').then( m => m.VehiculoPageModule)
   },
+  {
+    path: 'home-conductor',
+    loadChildren: () => import('./home-conductor/home-conductor.module').then( m => m.HomeConductorPageModule)
+  },
+  {
+    path: 'cuenta',
+    loadChildren: () => import('./cuenta/cuenta.module').then( m => m.CuentaPageModule)
+  },
+
+
 
 
 ];

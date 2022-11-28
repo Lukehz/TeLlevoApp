@@ -1,0 +1,100 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">
+      <img src="../assets/images/duocLogo.png" alt="duocLogo" id="duocLogo" id="duocLogo">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-header>
+    <ion-toolbar id="toolbarFoto">
+      <img src="../assets/images/profileMenu.jpg" alt="FotoPerfil" id="fotoPerfil">
+      <p>Cambiar foto</p>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-label position="floating">Rut</ion-label>
+    <ion-input type="text" readonly="readonly" value="{{ rut }}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Nombre Completo</ion-label>
+    <ion-input type="text" readonly="readonly" value="{{ nombreCompleto }}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input type="text" readonly="readonly" value="{{ email }}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Carrera</ion-label>
+    <ion-input type="text" readonly="readonly" value="{{ carrera }}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Sede</ion-label>
+    <ion-input type="text" readonly="readonly" value="{{ sede }}"></ion-input>
+  </ion-item>
+
+  <div class="linea-division"></div>
+
+  <ion-footer style="position: absolute;">
+    <ion-button id="open-modal-agregar" expand="block" (click)="buscar()">Open</ion-button>
+    <ion-modal trigger="open-modal-agregar">
+      <ng-template>
+
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="backModal()">back</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-toolbar>
+          <ion-title style="text-align: center;">Datos<br>Vehiculo</ion-title>
+        </ion-toolbar>
+        
+        <ion-content>
+
+          
+          <ion-footer>
+            <ion-toolbar> <!-- 
+              <ion-buttons slot="start">
+                <ion-button (click)="Listar()">Listar</ion-button>
+              </ion-buttons>    -->             
+              <ion-buttons slot="end">
+                <ion-button (click)="buscar()">Buscar</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-footer>
+
+            <ion-card color="danger" *ngIf="matricula">
+
+              <ion-card-header style="color: black;">
+                <ion-card-title class="ion-text-center">
+                  Vehiculo encontrado
+                </ion-card-title>
+              </ion-card-header>
+
+              <ion-card-content style="text-align: center;font-size: medium;">
+                <b>Matricula: </b> {{ matricula }} <br>
+                <b>Marca: </b> {{ marca }} <br>
+                <b>Modelo: </b> {{ modelo }} <br>
+              </ion-card-content>
+              
+            </ion-card>
+
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-footer>
+
+
+</ion-content>
