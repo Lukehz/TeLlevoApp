@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>vehiculo</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="volverInicio()">Cancel</ion-button>
+      </ion-buttons>
+      <ion-title style="text-align: center;">Datos<br>Vehiculo</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="agregar(txtMarca, txtModelo, txtMatricula)" [strong]="true">Confirm</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+  
+  <ion-content>
+    <ion-item>
+      <ion-label>Matricula / key</ion-label>
+      <ion-input type="text" placeholder="Ej: CCXD53" #txtMatricula></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Marca</ion-label>
+      <ion-input type="text" placeholder="Ej: Nissan" #txtMarca></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Modelo</ion-label>
+      <ion-input type="text" placeholder="Ej: V16" #txtModelo></ion-input>
+    </ion-item>
+
+    
+    <ion-footer>
+      <ion-toolbar> <!-- 
+        <ion-buttons slot="start">
+          <ion-button (click)="Listar()">Listar</ion-button>
+        </ion-buttons>    -->             
+        <ion-buttons slot="end">
+          <ion-button (click)="buscar(txtMatricula)">Buscar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+
+      <ion-card color="danger" *ngIf="matricula">
+
+        <ion-card-header style="color: black;">
+          <ion-card-title class="ion-text-center">
+            Vehiculo encontrado
+          </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content style="text-align: center;font-size: medium;">
+          <b>Matricula: </b> {{ matricula }} <br>
+          <b>Marca: </b> {{ marca }} <br>
+          <b>Modelo: </b> {{ modelo }} <br>
+          
+          <ion-button (click)="eliminar(txtMatricula)" fill="clear" style="font-size: x-large;color: black;">
+            Eliminar
+          </ion-button>
+
+          
+        </ion-card-content>
+        
+      </ion-card>
+
+  </ion-content>
+
+</ion-content>
