@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { ToastController, NavController } from '@ionic/angular';
 import { CrudService } from '../crud.servicie';
 
 @Component({
@@ -12,7 +12,7 @@ export class VehiculoPage implements OnInit {
   matricula = "";
   marca = "";
   modelo = "";
-  constructor(private toast: ToastController, private crud: CrudService) { }
+  constructor(private toast: ToastController, private crud: CrudService, public navCtrl: NavController) { }
 
   ngOnInit() {
   }
@@ -62,13 +62,14 @@ export class VehiculoPage implements OnInit {
                     "modelo" : txtModelo.value
                   }];
     await this.crud.agregar(datos); // agreagr el dato al storage
-    const toast = await this.toast.create({ //aviso de que los datos fueron guardados
+    /*const toast = await this.toast.create({ //aviso de que los datos fueron guardados
       message:  'Los datos fueron guardados',
       duration: 2000,
       color: "succes",
       position: "middle"
-    });
-    toast.present();
+    });*/
+    this.navCtrl.navigateForward('home-conductor');
+    //toast.present();
     //esto limpia las cajas de texto
     txtMatricula.value = "";
     txtMarca.value = "";
