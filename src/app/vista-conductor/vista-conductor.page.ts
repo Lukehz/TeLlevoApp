@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 //formulario
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 // importar servicio de crud
 import { CrudService } from '../crud.servicie';
 
@@ -11,17 +11,19 @@ import { CrudService } from '../crud.servicie';
   styleUrls: ['./vista-conductor.page.scss'],
 })
 export class VistaConductorPage implements OnInit {
-
+  //para obtener el dato de inicio de sesion del ususuario
   email: string;
 
-  usuario = new FormGroup({
-    rut: new FormControl(''),
-    nombreCompleto: new FormControl<string>(''),
-    correo: new FormControl('')
+  //datos extras para el usuario que va hacer conductor
+  conductor = new FormGroup({
+    rut: new FormControl('',[Validators.required,Validators.minLength(9)]),
+    nombreCompleto: new FormControl('',[Validators.required]),
+    carrera: new FormControl('',Validators.required),
+    sede: new FormControl('',Validators.required)
   });
 
 
-
+  //CRUD
   matricula = "";
   marca = "";
   modelo = "";
@@ -32,6 +34,10 @@ export class VistaConductorPage implements OnInit {
     var usuario = JSON.parse(localStorage.getItem('usuario'));
     this.email = usuario.email;
     
+  }
+
+  guardarDatos(){
+    console.log(this.conductor.value);
   }
 
   volverInicio() {

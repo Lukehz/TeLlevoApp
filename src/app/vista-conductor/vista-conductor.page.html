@@ -9,7 +9,7 @@
 
 <ion-content class="ion-padding">
 
-  <form [formGroup]="usuario" (ngSubmit)="guardarDatos()">
+  <form [formGroup]="conductor" (ngSubmit)="guardarDatos()">
     <ion-item>
       <ion-label position="floating">Rut</ion-label>
       <ion-input formControlName="rut"></ion-input>
@@ -29,7 +29,7 @@
       <ion-item>
         <ion-label position="floating">Carrera</ion-label>
 
-          <ion-select multiple="false" placeholder="Select Carrera">
+          <ion-select multiple="false" placeholder="Select Carrera" formControlName="carrera">
             <ion-select-option value="Auditoria">Auditoria</ion-select-option>
             <ion-select-option value="TurismoYhoteleria">Turismo y Hotelería</ion-select-option>
             <ion-select-option value="Ing.Informatica">Ingeniería en Informática</ion-select-option>
@@ -40,7 +40,7 @@
     <ion-item>
       <ion-label position="floating">Sede</ion-label>
 
-        <ion-select multiple="false" placeholder="Select Sede">
+        <ion-select multiple="false" placeholder="Select Sede" formControlName="sede">
           <ion-select-option value="Valparaiso">Valparaiso</ion-select-option>
           <ion-select-option value="VinaDelMar">Viña del Mar</ion-select-option>
           <ion-select-option value="PuertoMontt">Puerto Montt</ion-select-option>
@@ -50,10 +50,9 @@
 
   </form>
 
-  <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
-    CONFIRMAR
+  <ion-button (click)="guardarDatos()" expand="block" fill="clear" shape="round" id="open-modal-agregar">
+    Siguiente
   </ion-button>
-  <ion-button id="open-modal-agregar" expand="block">Open</ion-button>
       <ion-modal trigger="open-modal-agregar">
         <ng-template>
 
