@@ -44,7 +44,7 @@ export class VistaConductorPage implements OnInit {
   }
 
   async guardarDatos(){
-    console.log(this.formularioConductor.value);
+    console.log("Datos almacenados", this.formularioConductor.value);
     
 
     if(this.formularioConductor.invalid){

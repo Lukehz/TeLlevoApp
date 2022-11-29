@@ -34,16 +34,27 @@ export class PasajeroPage implements OnInit {
     if(usuario.nombre == f.nombre && usuario.password == f.password){
       console.log('Ingresado');
       localStorage.setItem('ingresado', 'true');
-      this.navCtrl.navigateRoot('home');
+      this.navCtrl.navigateForward('home');
       
     }else{
-      const alert = await this.alertController.create({
-        header: 'Datos incorrectos',
-        message: 'Rellene los campos correctamente.',
-        buttons: ['Aceptar']
-      });
-  
-      await alert.present();
+
+      if (f.nombre == "" || f.password == "") {
+        const alert = await this.alertController.create({
+          header: 'Datos incorrectos',
+          message: 'Rellene los campos correctamente.', 
+          buttons: ['Aceptar']
+        });
+        await alert.present();
+        
+      } else {
+        const alert = await this.alertController.create({
+          header: 'Datos incorrectos',
+          message: 'El usuario y/o contraseña son incorrectos.',
+          buttons: ['Aceptar']
+        });
+        await alert.present();
+        
+      }
 
     }
   }

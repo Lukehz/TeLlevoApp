@@ -26,24 +26,35 @@ export class ConductorPage implements OnInit {
 
   ngOnInit() {
   }
-  async ingresar(){//se agrego para probar el inicio a la vista conductor
+  async ingresar(){
     var f = this.formularioLogin.value;
 
     var usuario = JSON.parse(localStorage.getItem('usuario'));
 
     if(usuario.nombre == f.nombre && usuario.password == f.password){
       console.log('Ingresado');
-      localStorage.setItem('ingresado', 'true')
+      localStorage.setItem('ingresado', 'true');
       this.navCtrl.navigateForward('vista-conductor');
+      
+    }else{
 
-  }else{
-      const alert = await this.alertController.create({
-        header: 'Datos incorrectos',
-        message: 'Los datos ingresados son incorrectos.',
-        buttons: ['Aceptar']
-      });
-  
-      await alert.present();
+      if (f.nombre == "" || f.password == "") {
+        const alert = await this.alertController.create({
+          header: 'Datos incorrectos',
+          message: 'Rellene los campos correctamente.', 
+          buttons: ['Aceptar']
+        });
+        await alert.present();
+        
+      } else {
+        const alert = await this.alertController.create({
+          header: 'Datos incorrectos',
+          message: 'El usuario y/o contraseña son incorrectos.',
+          buttons: ['Aceptar']
+        });
+        await alert.present();
+        
+      }
 
     }
   }
