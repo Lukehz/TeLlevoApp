@@ -8,6 +8,11 @@ h1{
     left: 17px;
 }
 
+h3{
+    font-family: lato;
+    color: rgb(206, 206, 206);
+    left: 17px;
+}
 p{
     font-size: 15px;
     font-family: lato;
@@ -19,9 +24,9 @@ p{
     height: 180px;
     width: 350px;
     background-color: rgb(0, 0, 0);
-    background: linear-gradient(50deg, rgb(19, 19, 19) 0%, rgb(49, 30, 134) 100%);
-    box-shadow: 0px 1px 10px rgba(98, 140, 255, 0.5);
-    transform: rotate(-7deg);
+    background: linear-gradient(50deg, rgb(137, 151, 255) 0%, rgb(0, 81, 255) 100%);
+    box-shadow: 0px 1px 10px rgba(47, 0, 255, 0.5);
+    transform: rotate(0wdeg);
     border-radius: 10px 10px 10px 50px;
     margin-left: -18px;
     margin-top: -50px;
@@ -49,12 +54,13 @@ img {
     margin-top: -35px;
     ion-icon {
         margin-right: 10px;
-        color: black;
+        color: rgb(31, 2, 105);
     }
     ion-item{
         padding-left: 10px;
         margin-bottom: 5px;
     }
+    
 }
 
 .linea-division {
@@ -68,4 +74,15 @@ img {
 .item {
    margin-top: px;
 }
+
+.background-container1{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background: url('../assets/icon/taxi.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(2px);
+    
+  } 
 

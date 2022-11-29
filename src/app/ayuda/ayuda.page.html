@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ayuda</ion-title>
+    <ion-buttons slot="start">
+    <ion-back-button color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-img src="../../assets/images/teayudo.svg" id="ayuda"></ion-img>
+
+  <ion-button id="click-trigger1" fill="clear" color="dark">
+    <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    Problemas de navegacion</ion-button>
+    <ion-popover trigger="click-trigger1" triggerAction="click" size="auto">
+      <ng-template>
+        <ion-content class="ion-padding">Al poseer problemas con el navegador, actualice la página, comprobando que posea conexión de datos, si los problemas persisten contactarse con nosotros.</ion-content>
+      </ng-template>
+    </ion-popover>
+    <div class="linea-division"></div>
+  
+  <ion-button id="click-trigger2" fill="clear" color="dark">
+    <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    Problemas con tu cuenta
+  </ion-button>
+  <ion-popover trigger="click-trigger2" triggerAction="click" size="auto">
+    <ng-template>
+      <ion-content class="ion-padding">Al poseer problemas con la cuenta, compruebe la conexión de datos, si los problemas persisten contactenos.</ion-content>
+    </ng-template>
+  </ion-popover>
+
+  <div class="linea-division"></div>
+
+  <ion-button id="click-trigger3" fill="clear" color="dark">
+    <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    No encuentras lo que buscabas</ion-button>
+    <ion-popover trigger="click-trigger3" triggerAction="click" size="auto">
+      <ng-template>
+        <ion-content class="ion-padding">Si no encuentra lo que buscaba, escriba por medio del buscador, si aún no lo encuentra, contáctenos.</ion-content>
+      </ng-template>
+    </ion-popover>
+    <div class="linea-division"></div>
+
+      <ion-img src="../../assets/images/duocLogo.png" alt="duocLogo" id="logoduoc"></ion-img>
+</ion-content>

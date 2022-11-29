@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   nombre: string;
+
+  email: string;
   
   darkMode: boolean = true;
 
@@ -22,9 +24,11 @@ export class AppComponent implements OnInit {
     if (JSON.parse(localStorage.getItem('usuario'))){
       var usuario = JSON.parse(localStorage.getItem('usuario'))
       this.nombre = usuario.nombre
+      this.email = usuario.email
 
     }else{
       this.nombre = "usuario";
+      this.email = "email";
     }
    /* var usuario = JSON.parse(localStorage.getItem('usuario'));
     if(usuario.nombre != null){
@@ -38,10 +42,12 @@ export class AppComponent implements OnInit {
     document.body.classList.toggle( 'dark' );
     if (JSON.parse(localStorage.getItem('usuario'))){
       var usuario = JSON.parse(localStorage.getItem('usuario'))
-      this.nombre = usuario.nombre
+      this.nombre = usuario.nombre;
+      this.email = usuario.email;
 
     }else{
       this.nombre = "usuario";
+      this.email = "email";
     }
     
   }
