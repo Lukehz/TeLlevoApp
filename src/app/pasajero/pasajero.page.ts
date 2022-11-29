@@ -28,25 +28,27 @@ export class PasajeroPage implements OnInit {
   }
   async ingresar(){
     var f = this.formularioLogin.value;
-
-    var usuario = JSON.parse(localStorage.getItem('usuario'));
-
-    if(usuario.nombre == f.nombre && usuario.password == f.password){
-      console.log('Ingresado');
-      localStorage.setItem('ingresado', 'true');
-      this.navCtrl.navigateForward('home');
+    //si existe usuario
+    if (JSON.parse(localStorage.getItem('usuario'))) {
+      var usuario = JSON.parse(localStorage.getItem('usuario'));
+      //valida que los campos coincidan con el usuario que existe
+      if(usuario.nombre == f.nombre && usuario.password == f.password){
+        console.log('Ingresado');
+        localStorage.setItem('ingresado', 'true');
+        this.navCtrl.navigateForward('home');
       
-    }else{
+      }else{//si no coinciden da alertas de (los campos no estan rellenados) o (los datos no coinciden)
 
-      if (f.nombre == "" || f.password == "") {
-        const alert = await this.alertController.create({
-          header: 'Datos incorrectos',
-          message: 'Rellene los campos correctamente.', 
-          buttons: ['Aceptar']
-        });
-        await alert.present();
+        //valida si los campos no estan rellenos
+        if (f.nombre == "" || f.password == "") {
+          const alert = await this.alertController.create({
+            header: 'Datos incorrectos',
+            message: 'Rellene los campos correctamente.', 
+            buttons: ['Aceptar']
+          });
+          await alert.present();
         
-      } else {
+      } else {//valida si nos campos no coinciden
         const alert = await this.alertController.create({
           header: 'Datos incorrectos',
           message: 'El usuario y/o contraseña son incorrectos.',
@@ -57,6 +59,30 @@ export class PasajeroPage implements OnInit {
       }
 
     }
+      
+    } else {//si no existe el usuario manda las alertas segun el estado en que esta rellenado el formulario
+            //como puede ser que los campos no estan rellenados de forma correcta o no coicide con el usuario
+      if (f.nombre == "" || f.password == "") { //alerta de los campos no estan rellenados
+        const alert = await this.alertController.create({
+          header: 'Datos incorrectos',
+          message: 'Rellene los campos correctamente.', 
+          buttons: ['Aceptar']
+        });
+        await alert.present();
+        
+      } else {//alerta de que no coinciden los datos ingresados con el del usuario
+        const alert = await this.alertController.create({
+          header: 'Datos incorrectos',
+          message: 'El usuario y/o contraseña son incorrectos.',
+          buttons: ['Aceptar']
+        });
+        await alert.present();
+        
+      }
+
+      
+    }
+    
   }
 
 }

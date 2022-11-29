@@ -18,10 +18,15 @@ export class AppComponent implements OnInit {
 
 
 
-  ngOnInit() {
-    var usuario = JSON.parse(localStorage.getItem('usuario'));
-    this.nombre = usuario.nombre;
-    
+  ngOnInit() {  
+    if (JSON.parse(localStorage.getItem('usuario'))){
+      var usuario = JSON.parse(localStorage.getItem('usuario'))
+      this.nombre = usuario.nombre
+    };
+   /* var usuario = JSON.parse(localStorage.getItem('usuario'));
+    if(usuario.nombre != null){
+      this.nombre = usuario.nombre
+    };*/
   }
 
   cambio() {
