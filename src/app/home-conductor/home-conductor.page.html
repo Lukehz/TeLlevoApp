@@ -13,24 +13,21 @@
 
 <ion-content>
 
-  <ion-card>
-    <ion-card-content>
-
       <form [formGroup]="formularioAnuncio" (ngSubmit)="guardarDatos()">
 
         <ion-item>
           <ion-label position="floating">Destino</ion-label>
-          <ion-input type="text" placeholder="Awesome Input" formControlName="destino"></ion-input>
+          <ion-input type="text" placeholder="Chiloe" formControlName="destino"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Precio</ion-label>
+          <ion-input type="number" placeholder="1000" formControlName="precio">$ </ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label>Hora de salida:</ion-label>
-          <ion-input type="time" name="" formControlName="horaSalida"></ion-input>
-        </ion-item>
-        
-        <ion-item>
-          <ion-label position="floating">Precio</ion-label>
-          <ion-input type="number" placeholder="Awesome Input" formControlName="precio">$</ion-input>
+          <ion-input type="time" formControlName="horaSalida"></ion-input>
         </ion-item>
 
       </form>
@@ -39,11 +36,41 @@
         Siguiente
       </ion-button>
 
-      <ion-textarea></ion-textarea>
+      <ion-button id="anuncio-modal">Ver anuncio</ion-button>
+      <ion-modal trigger="anuncio-modal">
+        
+        <ng-template>
 
-    </ion-card-content>
-  </ion-card>
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-button (click)="volverInicio()">Cancel</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
 
 
+          
+          <ion-content>            
+
+              <ion-card color="danger"> <!-- *ngIf="matricula" -->
+
+                <ion-card-header style="color: black;">
+                  <ion-card-title class="ion-text-center">
+                    Anuncio generado
+                  </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content style="text-align: center;font-size: medium;">
+                  <ion-label>destino: {{ destino }}</ion-label><br>
+                  <ion-label>precio: {{ precio }}</ion-label><br>
+                  <ion-label>hora de salida: {{ time }}</ion-label>
+                </ion-card-content>
+                
+              </ion-card>
+
+          </ion-content>
+        </ng-template>
+      </ion-modal>
 
 </ion-content>

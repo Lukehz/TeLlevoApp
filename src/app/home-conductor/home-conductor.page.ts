@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators } from "@angular/forms";
-import { AlertController } from "@ionic/angular";
+import { AlertController, ModalController } from "@ionic/angular";
 
 @Component({
   selector: 'app-home-conductor',
@@ -9,9 +9,18 @@ import { AlertController } from "@ionic/angular";
 })
 export class HomeConductorPage implements OnInit {
 
-  formularioAnuncio: FormGroup;
+  formularioAnuncio = new FormGroup({
+    destino: new FormControl(""),
+    horaSalida: new FormControl(""),
+    precio: new FormControl("")
+  });
 
-  constructor(public fb: FormBuilder, public alertController: AlertController) { 
+  destino: string;
+  precio: number;
+  time: string;
+
+
+  constructor(private modalCtrl: ModalController, public fb: FormBuilder, public alertController: AlertController) { 
     this.formularioAnuncio = this.fb.group({
       'destino': new FormControl("", Validators.required),
       'horaSalida': new FormControl("", Validators.required),
@@ -21,6 +30,11 @@ export class HomeConductorPage implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  volverInicio() {
+    this.modalCtrl.dismiss();
   }
 
   async guardarDatos(){
@@ -35,15 +49,21 @@ export class HomeConductorPage implements OnInit {
       });
 
       await alert.present();
-      return;
     }
+    
     var anuncio = {
-      destino: this.formularioAnuncio.value.destino,
-      horaSalida: this.formularioAnuncio.value.horaSalida,
-      precio: this.formularioAnuncio.value.precio
+      destino : this.formularioAnuncio.value.destino,
+      horaSalida : this.formularioAnuncio.value.horaSalida,
+      precio : this.formularioAnuncio.value.precio
     }
 
     localStorage.setItem('AnuncioDatos',JSON.stringify(anuncio));
+    var AnunDatos = JSON.parse(localStorage.getItem('AnuncioDatos'));
+    console.log("respuesta", AnunDatos)
+    var anu = JSON.parse(localStorage.getItem('AnuncioDatos'));
+    this.destino = anu.destino;
+    this.precio = anu.precio;
+    this.time = anu.horaSalida;
 
   }
 }
