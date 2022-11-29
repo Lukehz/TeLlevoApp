@@ -22,7 +22,10 @@ export class AppComponent implements OnInit {
     if (JSON.parse(localStorage.getItem('usuario'))){
       var usuario = JSON.parse(localStorage.getItem('usuario'))
       this.nombre = usuario.nombre
-    };
+
+    }else{
+      this.nombre = "usuario";
+    }
    /* var usuario = JSON.parse(localStorage.getItem('usuario'));
     if(usuario.nombre != null){
       this.nombre = usuario.nombre
@@ -33,8 +36,14 @@ export class AppComponent implements OnInit {
     // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     this.darkMode = !this.darkMode;
     document.body.classList.toggle( 'dark' );
+    if (JSON.parse(localStorage.getItem('usuario'))){
+      var usuario = JSON.parse(localStorage.getItem('usuario'))
+      this.nombre = usuario.nombre
+
+    }else{
+      this.nombre = "usuario";
+    }
     
   }
-
 
 }

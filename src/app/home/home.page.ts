@@ -29,15 +29,26 @@ export class HomePage implements OnInit{
   ngOnInit() {
     this.buscar();
     var dataAnuncio = JSON.parse(localStorage.getItem('AnuncioDatos'));
-    this.destino = dataAnuncio.destino;
-    this.precio = dataAnuncio.precio;
-    this.horaSalida = dataAnuncio.horaSalida;
+    if (JSON.parse(localStorage.getItem('AnuncioDatos'))) {
+      this.destino = dataAnuncio.destino;
+      this.precio = dataAnuncio.precio;
+      this.horaSalida = dataAnuncio.horaSalida;
+      
+    } else {
+      
+    }
     console.log("datos del anuncio conductor",dataAnuncio);
     const valor = this.crud.rescatar("1");
     console.log("valores", valor);
-    var dataConductor = JSON.parse(localStorage.getItem('conductorDatos'));
-    this.nombreConduc = dataConductor.nombreCompleto;
-    this.carreraConduc = dataConductor.carrera;
+    if (JSON.parse(localStorage.getItem('conductorDatos'))) {
+      var dataConductor = JSON.parse(localStorage.getItem('conductorDatos'));
+      this.nombreConduc = dataConductor.nombreCompleto;
+      this.carreraConduc = dataConductor.carrera;
+
+    } else {
+      
+    }
+
   }
 
   volverInicio() {
