@@ -13,79 +13,41 @@ export class HomePage implements OnInit{
   matricula = "";
   marca = "";
   modelo = "";
+  //datos anuncio del conductor
+  destino: string;
+  precio: number;
+  horaSalida: string;
+  //datos conductor
+  nombreConduc: string;
+  carreraConduc: string;
+
   constructor( private modalCtrl: ModalController, private crud: CrudService,
                                                     private toast: ToastController,
                                                      public alertController: AlertController,
                                                       public navCtrl: NavController) {}
 
   ngOnInit() {
-    
+    this.buscar();
+    var dataAnuncio = JSON.parse(localStorage.getItem('AnuncioDatos'));
+    this.destino = dataAnuncio.destino;
+    this.precio = dataAnuncio.precio;
+    this.horaSalida = dataAnuncio.horaSalida;
+    console.log("datos del anuncio conductor",dataAnuncio);
+    const valor = this.crud.rescatar("1");
+    console.log("valores", valor);
+    var dataConductor = JSON.parse(localStorage.getItem('conductorDatos'));
+    this.nombreConduc = dataConductor.nombreCompleto;
+    this.carreraConduc = dataConductor.carrera;
   }
 
   volverInicio() {
     this.modalCtrl.dismiss();
   }
 
-  async agregar(txtMarca:HTMLInputElement, txtModelo:HTMLInputElement, txtMatricula:HTMLInputElement)
-  {
-    //VALIDA QUE INGRESEN TODOS LOS DATOS EN LOS CAMPO SOLICITADO
-    if(txtMatricula.value.trim().length == 0)
-    {
-      const toast = await this.toast.create({
-        message:  'La matricula no a sido ingresada',
-        duration: 2000,
-        color: "dark",
-        position: "middle"
-      });
-      toast.present();
-      return;
-    }
-    else if(txtMarca.value.trim().length == 0)
-    {
-      const toast = await this.toast.create({
-        message:  'No se a ingresado la Marca',
-        duration: 2000,
-        color: "dark",
-        position: "middle"
-      });
-      toast.present();
-      return;
-    }
-    else if(txtModelo.value.trim().length == 0)
-    {
-      const toast = await this.toast.create({
-        message:  'No se a ingresado el Modelo',
-        duration: 2000,
-        color: "dark",
-        position: "middle"
-      });
-      toast.present();
-      return;
-    }
-
-
-
-    const datos = [{"matricula" : txtMatricula.value,
-                    "marca"  : txtMarca.value,
-                    "modelo" : txtModelo.value
-                  }];
-    await this.crud.agregar(datos); // agreagr el dato al storage
-    const toast = await this.toast.create({ //aviso de que los datos fueron guardados
-      message:  'Los datos fueron guardados',
-      duration: 2000,
-      color: "succes",
-      position: "middle"
-    });
-    toast.present();
-    //esto limpia las cajas de texto
-    txtMatricula.value = "";
-    txtMarca.value = "";
-    txtModelo.value = "";
-  }
-  async buscar(txtMatricula:HTMLInputElement)
+  async buscar()
   {
     //retorna si encuentra la matricula (si no hay no hace nada)
-    const valor = await this.crud.rescatar(txtMatricula.value);
+    const valor = await this.crud.rescatar("1");
 
     if (valor != null) //muestra los datos segun la matricula ingresada
     {
@@ -106,52 +68,8 @@ export class HomePage implements OnInit{
         color: "dark",
         position: "middle"
       });
-      toast.present();
+      //toast.present();
     }
   }
-
-  async eliminar(txtMatricula:HTMLInputElement)
-  {
-    if (txtMatricula.value.trim().length == 0) //anuncio de error, cuando quieres eliminar un vehiculo pero no ingresas ninguna matricula
-    {
-      const toast = await this.toast.create({
-        message: 'La matricula no fue especificada1',
-        duration: 2000,
-        color: "dark",
-        position: "middle"
-      });
-      toast.present();
-    }
-    else
-    {
-      const valor = await this.crud.rescatar(txtMatricula.value);
-
-      if (valor == null) //anuncio de error, cuando quieres eliminar una matricula en la situacion [ingresas una matricula aparecen los datos y el boton eliminar pero antes de eso cambias la matricula a una que no existe y apretas eliminar]
-      {
-        const toast = await this.toast.create({
-          message: 'La matricula no fue encontrada2',
-          duration: 2000,
-          color: "dark",
-          position: "middle"
-        });
-        toast.present();
-      }
-      else //Elimina el vehiculo segun la matricula que ingresaste
-      {
-        this.crud.eliminar(txtMatricula.value)
-        const toast = await this.toast.create({
-          message: 'El vehiculo fue eliminado',
-          duration: 2000,
-          color: "dark",
-          position: "middle"
-        });
-        toast.present();
-      }
-    }
-
-    this.matricula = "";
-    this.marca = "";
-    this.modelo = "";
-
-  }
+ 
 }
