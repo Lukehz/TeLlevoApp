@@ -1,16 +1,24 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title id="titulo">Datos Personales</ion-title>
-  </ion-toolbar>
+    <ion-fab>
+      <ion-fab-button routerLink="/inicio">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Datos personales</h1>
+    </div>
+
+    <div class="login-form ion-padding">
+      <div class="form-input">
 
   <form [formGroup]="formularioConductor" (ngSubmit)="guardarDatos()">
-    <ion-item>
+    
+    <ion-item counter="true">
       <ion-label position="floating">Rut</ion-label>
       <ion-input formControlName="rut" minlength="9"></ion-input>
     </ion-item>
@@ -53,6 +61,10 @@
   <ion-button (click)="guardarDatos()" expand="block" fill="clear" shape="round">
     Siguiente
   </ion-button>
+    </div>
+    </div>
+  </div>
+
       <ion-modal trigger="open-modal-agregar">
         <ng-template>
 

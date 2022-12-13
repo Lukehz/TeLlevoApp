@@ -3,3 +3,59 @@
     height: auto;
     width: auto;
 }
+
+ion-content{
+    --background: linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.1)),
+    url("/assets/images/duoc.jpg") no-repeat center center / cover;
+} 
+
+.login-section {
+    height: 80vh;
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    margin: auto;
+    border-top-left-radius: 46px;
+    border-top-right-radius: 46px;
+
+    .heading{
+        margin-top: -35px;
+        h1{
+            font-size: 28px;
+            font-weight: bolder;
+            text-align: center;
+        }
+    }
+    .login-form{
+        margin-top: -40px;
+        margin-left: -20px;
+        .form-input{
+            position: relative;
+            margin-bottom: -4px;
+
+            ion-label{
+                color: #929290;
+                margin-bottom: -10px;
+            }
+
+            ion-input{
+              
+                margin-bottom: -10px;
+            }
+        }
+    }
+
+    
+}
+
+ion-fab-button {
+    --background: #809da6;
+    --background-activated: #ffffff;
+    --background-hover: #ffffff;
+    --box-shadow: 0px 1px 2px 0px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15);
+    --color: black;
+  }
