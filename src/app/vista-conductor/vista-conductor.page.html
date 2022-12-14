@@ -1,6 +1,6 @@
 <ion-header>
     <ion-fab>
-      <ion-fab-button routerLink="/inicio">
+      <ion-fab-button routerLink="/conductor">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>
@@ -73,6 +73,7 @@
               <ion-buttons slot="start">
                 <ion-button (click)="volverInicio()">Cancel</ion-button>
               </ion-buttons>
+
               <ion-buttons slot="end">
                 <ion-button (click)="agregar(txtMarca, txtModelo, txtMatricula)" [strong]="true">Confirm</ion-button>
               </ion-buttons>

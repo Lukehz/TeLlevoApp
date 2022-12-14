@@ -13,7 +13,14 @@
   <ion-header>
     <ion-toolbar id="toolbarFoto">
       <img src="../assets/images/profileMenu.jpg" alt="FotoPerfil" id="fotoPerfil">
-      <p>Cambiar foto</p>
+      <ion-item>
+        <ion-item text-center>
+          <ion-button fill="clear" (click)="abrirGaleria()">
+            <ion-icon name="images"></ion-icon>
+            Cambiar foto
+          </ion-button>
+        </ion-item>
+      </ion-item>
     </ion-toolbar>
   </ion-header>
 
